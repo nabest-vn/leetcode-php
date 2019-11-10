@@ -11,16 +11,6 @@ class Solution4
 {
 
 
-    public function getResult($n1,$n2){
-        $l1 = count($n1);
-        $l2 = count($n2);
-        if($l1 > $l2){
-            return $this->getResult(n2,n1);
-        }
-
-    }
-
-
     //使用数组获取到
     public function getMedian($nums1,$nums2){
         $len1 = count($nums1);
