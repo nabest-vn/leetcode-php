@@ -17,15 +17,16 @@ class Solution14
         foreach ($strs as $str) {
             $i = 0;
             while ($i < strlen($str) && $i < strlen($common)){
+                echo "strs:".$str{$i}. " common:". $common{$i} ."\n";
                 if($str{$i} == $common{$i}){
                     $i ++;
                     continue;
                 }
-                $i --;
                 break;
             }
             $len = strlen($common);
-            $common = substr($common,0,min($len,$i + 1));
+            echo $common ."\n";
+            $common = substr($common,0,min($len,$i,count($str)));
             if($common == ""){
                 break;
             }
@@ -33,3 +34,5 @@ class Solution14
         return $common;
     }
 }
+$obj = new Solution14();
+echo $obj->longestCommonPrefix(['flower','flow', 'flight']);
