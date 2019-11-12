@@ -17,16 +17,14 @@ class Solution14
         foreach ($strs as $str) {
             $i = 0;
             while ($i < strlen($str) && $i < strlen($common)){
-                echo "strs:".$str{$i}. " common:". $common{$i} ."\n";
                 if($str{$i} == $common{$i}){
                     $i ++;
                     continue;
+                }else{
+                    break;
                 }
-                break;
             }
-            $len = strlen($common);
-            echo $common ."\n";
-            $common = substr($common,0,min($len,$i,count($str)));
+            $common = substr($common,0,$i);
             if($common == ""){
                 break;
             }
