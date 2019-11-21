@@ -40,6 +40,7 @@ class Solution6
         }
         return $str;
     }
+
 }
 
 $obj = new Solution6();

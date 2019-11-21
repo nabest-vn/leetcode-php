@@ -6,7 +6,11 @@
  * Time: 7:42
  */
 
-class Solution3{
+/*
+ * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ */
+
+class Solution3Copy{
 
 
     /**
@@ -34,8 +38,11 @@ class Solution3{
     }
 
 
-    /*
-     * 时间复杂度为
+    /**
+     * @param $s
+     * @return int|mixed
+     * @desc 使用队列来存储不重复的子串，每次比较都更新最大值，如果遇到重复的字串，
+     * 则把重复的字母之前的所有字母都给去掉
      */
     public function maxlength($s)
     {
@@ -49,7 +56,7 @@ class Solution3{
 
         $set = [];
         $index =0;
-        while($index <$len){
+        while($index < $len){
             if(!in_array($s{$index}, $set)){
                 $set[$index] = $s{$index};
                 $max = max($max, count($set));
@@ -64,7 +71,7 @@ class Solution3{
     }
 }
 
-$obj = new Solution3();
+$obj = new Solution3Copy();
 echo $obj->maxlength("eeydgwdykpv");
 
 $array = Array

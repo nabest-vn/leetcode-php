@@ -8,6 +8,12 @@
 
 class Solution36
 {
+
+    /**
+     * @param $nums
+     * @return bool
+     * @desc 是否是一个有效的数组，通过遍历整个数组来破解是否是一个有效的数独
+     */
     public function isValidSudoku($nums)
     {
         for($i = 0;$i<9; $i++){

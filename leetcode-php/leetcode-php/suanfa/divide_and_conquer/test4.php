@@ -11,7 +11,12 @@ class Solution4
 {
 
 
-    //使用数组获取到
+    /**
+     * @param $nums1
+     * @param $nums2
+     * @return float|int|mixed
+     * @desc 遍历所有的可能，利用
+     */
     public function getMedian($nums1,$nums2){
         $len1 = count($nums1);
         $len2 = count($nums2);
@@ -53,6 +58,13 @@ class Solution4
         return 0.0;
     }
 
+
+    /**
+     * @param $array1
+     * @param $array2
+     * @return float|int
+     * @desc 递归
+     */
     public function findMedianSortedArrays($array1, $array2)
     {
         $left = intval((count($array1) + 1 + count($array2)) /2);

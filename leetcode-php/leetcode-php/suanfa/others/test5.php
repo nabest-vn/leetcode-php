@@ -26,6 +26,8 @@ class Solution5
         return $max;
     }
 
+    //把每次的操作结果放到数组list中，第一层for循环表示的是以️第j位为结尾的对称的回文字符串的可能，
+    //然后利用利用第二层for循环来查找开始的位置，找到了就放到list中
     private function setList($s, &$list)
     {
         $len = strlen($s);
