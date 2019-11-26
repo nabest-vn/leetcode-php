@@ -64,9 +64,29 @@ class Solution42
         return max(array_splice($arr,$left,$right-$left+1));
     }
 
-    public function getResultByStack($num)
+    public function getResultByDynamic($num)
     {
+        if(count($num) <= 2){
+            return 0;
+        }
+        $len = count($num);
+        $leftMax = [0];
+        $rightMax[$len - 1] = 0;
+        for($i=1;$i<$len;$i ++){
+            $leftMax[] = max($num[$i - 1], $leftMax[$i - 1]);
+        }
+        for($i = $len -2;$i>=0;$i--){
+            $rightMax[$i] = max($num[$i + 1], $rightMax[$i + 1]);
+        }
 
+        $res = 0;
+        for($i = 1;$i < $len - 1;$i ++){
+            $min = min($leftMax[$i],$rightMax[$i]);
+            if($num[$i] < $min){
+                $res += $min - $num[$i];
+            }
+        }
+        return $res;
     }
 
     public function getResultByMax($num)
@@ -114,7 +134,4 @@ class Solution42
 }
 
 $obj = new Solution42();
-echo $obj->getResultByMax([0,1,0,2,1,0,1,3,2,1,2,1]);
-
-$redis = new Redis();
-$redis->connect('127.0.0.1');
+echo $obj->getResultByDynamic([0,1,0,2,1,0,1,3,2,1,2,1]);
